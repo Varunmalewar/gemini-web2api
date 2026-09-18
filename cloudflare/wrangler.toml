@@ -1,0 +1,26 @@
+# Wrangler configuration for Gemini Web2API (Cloudflare Workers)
+# Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "gemini-web2api"
+main = "worker.js"
+compatibility_date = "2026-01-15"
+
+# ----------------------------------------------------------------------------
+# Non-secret configuration (safe to commit).
+# Secrets (COOKIE_STRING, SAPISID, API_KEYS) must NOT go here.
+# Set them with:  npx wrangler secret put <NAME>
+# ----------------------------------------------------------------------------
+[vars]
+# Default model when the client doesn't specify one
+DEFAULT_MODEL = "gemini-3.6-flash"
+# Gemini build tag. If you ever get HTTP 405, grab the newest value from
+# gemini.google.com (F12 -> Network -> search "boq_assistant") and update here.
+GEMINI_BL = "boq_assistant-bard-web-server_20260716.08_p0"
+# Request timeout in seconds (must stay under Workers' ~30s limit)
+REQUEST_TIMEOUT_SEC = "28"
+# Retry behavior
+RETRY_ATTEMPTS = "3"
+RETRY_DELAY_SEC = "2"
+# Rate limiting: max requests per window
+RATE_LIMIT_MAX = "3000"
+RATE_LIMIT_WINDOW = "60"

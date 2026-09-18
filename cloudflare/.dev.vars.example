@@ -1,0 +1,10 @@
+# Copy this file to .dev.vars (it is git-ignored) for local testing with `wrangler dev`.
+# For production, set these with: npx wrangler secret put <NAME>
+
+# API key whitelist (JSON array). Clients must send: Authorization: Bearer <key>
+API_KEYS = ["sk-gemini"]
+
+# Optional: Gemini cookie for real Pro routing and much lower 429 risk.
+# Multiple accounts separated by | ; SAPISID auto-extracted from the first cookie.
+# COOKIE_STRING = "__Secure-1PSID=xxx; __Secure-3PSID=xxx; SAPISID=xxx"
+# SAPISID = "xxx"

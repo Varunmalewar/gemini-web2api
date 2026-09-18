@@ -7,3 +7,8 @@ cookie.json
 .idea
 .DS_Store
 gemini-auth.json
+cloudflare/.dev.vars
+cloudflare/node_modules/
+.wrangler/
+*.log
+
